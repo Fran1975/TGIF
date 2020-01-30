@@ -1,6 +1,9 @@
-var myname="Fran";
-var myage=44;
-var ignasiAge=32;
+let myname="Fran"; //TODO: LET EN VEZ DE VAR. LOS NOMBRES BIEN ESCRITOS: myName
+let myage=44;
+
+document.getElementById("name").innerHTML = "My name is  " + myname +" "+ myage;
+
+let ignasiAge=32;
 var ageDiff=myage-ignasiAge;
 var number=21;
 var ignasiAge=30;
@@ -14,7 +17,6 @@ var myColor = ["Red", "Green", "White", "Black"];
 
 
 
-document.getElementById("name").innerHTML = "My name is" + myname + myage;
 document.getElementById("age").innerHTML = "the difference age is" + ageDiff;
 
 if (myage>number){
@@ -29,6 +31,8 @@ if (myage>ignasiAge){
     document.getElementById("age").innerHTML = "I´m younger than Ignasi";
 }
 
+//TODO: FALTA EL EJERCICIO DE ORDENAR. 
+
 document.getElementById("classroom1").innerHTML = classroom[0];
 document.getElementById("classroom1").innerHTML = classroom[5];
 document.getElementById("classroom1").innerHTML = classroom;
@@ -37,10 +41,11 @@ document.getElementById("classroom1").innerHTML = classroom;
 
 // Utilizacion de while
 while (i < 6) {
-    text += "<br>The age is " + i;
+    text +=  i;
     i++;
   }
-document.getElementById("ageclass1").innerHTML = ageclass;
+console.log("Gonzalooo: "+text)
+document.getElementById("ageclass1").innerHTML = ageclass; //TODO: TIENES QUE ITERAR SOBRE UN BUCLE FOR, NO VALE CON MOSTRAR LA ARRAY DIRECTAMENET
 
 // Imprimir el valor mas alto
 document.getElementById("mayor").innerHTML = Math.max(0, 150, 30, 20, 8, 200);
@@ -52,7 +57,7 @@ document.getElementById("menor").innerHTML = Math.min(0, 150, 30, 20, 8, 200);
 document.getElementById("lugar").innerHTML = ejemploarray[5];
 
 //Unir elementos de un array a un string
-document.getElementById("color").innerHTML=myColor.join(',"');
+document.getElementById("color").innerHTML=","+myColor.join('","')+'"';
 
 //Impresión de valores repetidos
 function find_duplicate_in_array(arra1) {
