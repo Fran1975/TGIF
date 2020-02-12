@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="./styles/button.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <title>Senate</title>
+</head>
+
+<body style="background-color:#FBF5EF;">
+
+<!-- Button Up -->
+<a class="ir-arriba"  javascript:void(0) title="Volver arriba">
+    <span class="fa-stack">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+
+<!-- header -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <a href="./home.html">
+                <img src="tgif.jpg" class="rounded-circle" alt="tgif" width="70%" height="90%">
+            </a>
+        </div>
+        <div class="col">
+            <img src="capitolio.jpg"  alt="capitolio" width="80%" height="90%">
+        </div>
+        <div class="col">
+            <img src="whitehouse.jpg"  alt="white house" width="80%" height="90%">
+        </div>
+        <div class="col">
+            <img src="flag.jpg"  alt="flag" width="80%" height="90%">
+        </div>       
+    </div>
+</div>
+    
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center sticky-top">
+          
+    <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="./home.html">Home</a>
+            </li>
+           
+    <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Congress 113
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="./house.html">House</a>
+                    <a class="dropdown-item" href="./senate.html">Senate</a>          
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Attendance
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="./houseattendance.html">House</a>
+                    <a class="dropdown-item" href="./senateattendance.html">Senate</a>          
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Party Loyalty
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="./houseloyalty.html">House</a>
+                    <a class="dropdown-item" href="./senateloyalty.html">Senate</a>          
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Contact
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="mailto:info@tgif.net">info@tgif.net</a>
+                              
+                </div>
+            </li>
+        </ul>
+</nav>
+<br>
+<!-- Tabla -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1>ATTENDANCE</h1>
+            </br>
+        </br>
+    
+            <p class="text-justify">The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.
+
+            The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+        </div>
+        <div class="col">
+            </br> 
+            </br>          
+            <h4 class="text-center">Senate at a glance</h4>
+            <div class="container">                
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Nº of Reps</th>
+                            <th>% Voted w/ Party</th>                            
+                        </tr>
+                    </thead>   
+                    <tbody id="statisticsTable">        
+                    </tbody>                                  
+                </table>
+            </div> 
+        </div>
+    </div>
+</div>
+</br>
+<hr />
+
+<!-- Tabla 2 y 3 -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h4 class="text-center">Least Engaged (Bottom 10% Attendance)</h4>
+            <div class="container">                
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Nº of missed votes</th>
+                            <th>% missed</th>                            
+                        </tr>
+                    </thead>   
+                    <tbody id="Tablebottom">        
+                    </tbody>                                  
+                </table>
+            </div> 
+        </div>
+        <div class="col">
+            <h4 class="text-center">Most Engaged (Top 10% Attendance)</h4>
+                <div class="container">                
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Nº of missed votes</th>
+                                <th>% missed</th>                            
+                            </tr>
+                        </thead>   
+                        <tbody id="Tabletop">        
+                        </tbody>                                  
+                    </table>
+                </div> 
+        </div>
+    </div>
+</div>                
+</br>   
+
+
+    <!-- Footer -->
+    <div class="card-footer">
+        <p class="text-center">Created by Fco. Santiago Garrido<p>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="pro-Congress-113-senate.js"></script>
+    <script src="./statistics.attendance.senate.js"></script>
+    
+</body>
+</html>

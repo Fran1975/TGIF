@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <link rel="stylesheet" type="text/css" href="./styles/button.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+    
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +11,19 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
-    <title>Senate</title>
+    <title>House</title>
 </head>
 
 <body style="background-color:#FBF5EF;">
-    
+
+<!-- Button Up -->
+<a class="ir-arriba"  javascript:void(0) title="Volver arriba">
+    <span class="fa-stack">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+
 <!-- header -->
 <div class="container-fluid">
     <div class="row">
@@ -26,7 +33,7 @@
             </a>
         </div>
         <div class="col">
-            <img src="capitolio.jpg"  alt="capitolio" width="80%" height="90%">
+            <img src="capitolio.jpg"  alt="capitoliio" width="80%" height="90%">
         </div>
         <div class="col">
             <img src="whitehouse.jpg"  alt="white house" width="80%" height="90%">
@@ -40,11 +47,11 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center sticky-top">
           
-    <!-- Links -->
-        <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="./home.html">Home</a>
-        </li>
+<!-- Links -->
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="./home.html">Home</a>
+    </li>
            
     <!-- Dropdown -->
     <li class="nav-item dropdown">
@@ -85,86 +92,77 @@
     </li>
 </ul>
 </nav>
-        
-    
-      <br>
-      <br>
-
-
-
-      <div class="container">
-        <h3>Congressmen</h3>
-        <p class="text-justify">The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.
-
-            Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative.</p>
-      </div>
-
-<!-- Checks buttons party -->
-
-<div class = "container border bg-light">
+</br>
+<!-- Tabla -->
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6">
-            <p>Filter by Party:</p>           
-            <div class="custom-control custom-checkbox mb-3 custom-control-inline   ">        
-                <input type="checkbox" class="custom-control-input" id="customCheck1" name="check1" onchange="clickParty()" checked>  
-                <label class="custom-control-label" for="customCheck1">Republican</label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3 custom-control-inline   ">  
-                <input type="checkbox" class="custom-control-input" id="customCheck2" name="check2" onchange="clickParty()" checked>
-                <label class="custom-control-label" for="customCheck2">Democrat</label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3 custom-control-inline   ">   
-                <input type="checkbox" class="custom-control-input" id="customCheck3" name="check3" onchange="clickParty()" checked>
-                <label class="custom-control-label" for="customCheck3">Independent</label>
-            </div>     
+        <div class="col">
+            <h1>PARTY LOYALTY</h1>
+            </br>
+        </br>
+            <p class="text-justify">Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda.</p>
         </div>
-       
-
-<!-- Checks buttons state -->
-    
-        <div class="col-sm-6"> 
-            <p> Filter by State:</p>  
-            <select id="states" onchange="clickParty()" checked>
-                <option value="ALL"> --Select all state --</option>
-                <option value="AK" >AK</option>
-                <option value="AL" >AL</option>
-                <option value="AR" >AR</option>
-            </select> 
+        <div class="col">
+        </br>
+        </br>
+            <h4 class="text-center">House at a glance</h4>
+            <div class="container">                
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Nº of Reps</th>
+                            <th>% Voted w/ Party</th>                            
+                        </tr>
+                    </thead>   
+                    <tbody id="statisticsTable">        
+                    </tbody>                                  
+                </table>
+            </div> 
         </div>
     </div>
 </div>
-
- <br>
-    
-
-<!-- Button Up -->
-<a class="ir-arriba"  javascript:void(0) title="Volver arriba">
-    <span class="fa-stack">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
-    </span>
-  </a>
-
- <!-- List--> 
-
-    <p id="house-data"></p>
-    <div class="container">
-        <p></br></p>
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Party</th>
-                    <th>State</th>
-                    <th>Total Votes</th>
-                </tr>
-            </thead>   
-            <tbody id="houseTable">
-
-            </tbody>
-                          
-        </table>
-    </div> 
+<br>
+<br>
+<hr />
+<!-- Tabla 2 y 3 -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h4 class="text-center">Least Loyal (Bottom 10% of Party)</h4>
+            <div class="container">                
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Nº of Party Vote</th>
+                            <th>% Party Votes</th>                            
+                        </tr>
+                    </thead>   
+                    <tbody id="TableloyaltybottomH">        
+                    </tbody>                                  
+                </table>
+            </div> 
+        </div>
+        <div class="col">
+            <h4 class="text-center">Most Loyal (Top 10% of Party)</h4>
+                <div class="container">                
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Nº of Party Vote</th>
+                                <th>% Party Votes</th>                            
+                            </tr>
+                        </thead>   
+                        <tbody id="TableloyaltytopH">        
+                        </tbody>                                  
+                    </table>
+                </div> 
+        </div>
+    </div>
+</div>  
+</br>              
 
     <!-- Footer -->
     <div class="card-footer">
@@ -179,7 +177,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script src="pro-Congress-113-house.js"></script>
-    <script src="./house.js"></script>
+    <script src="./statistics.loyalty.house.js"></script>
     
 </body>
 </html>
