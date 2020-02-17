@@ -12,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
-    <title>Senate</title>
+    <title>House</title>
 </head>
 
 <body style="background-color:#FBF5EF;">
@@ -98,6 +98,17 @@
 
             Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative.</p>
       </div>
+      
+<!-- Spinner -->
+<div class = "container" id="myP">
+    <div class="row justify-content-center align-items-center">
+        <button class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm"></span>
+            Loading..
+        </button>
+    </div>
+</div>
+</br>
 
 <!-- Checks buttons party -->
 
@@ -122,20 +133,18 @@
 
 <!-- Checks buttons state -->
     
-        <div class="col-sm-6"> 
-            <p> Filter by State:</p>  
-            <select id="states" onchange="clickParty()" checked>
-                <option value="ALL"> --Select all state --</option>
-                <option value="AK" >AK</option>
-                <option value="AL" >AL</option>
-                <option value="AR" >AR</option>
-            </select> 
-        </div>
-    </div>
+<div class="col-sm-6"> 
+    <p> Filter by State:</p> 
+    <body>
+        <select id="states" name ="locality" onchange="clickParty()" checked>
+            <option value="ALL"> --Select all state --</option>
+        </select>
+    </body> 
+</div>
+</div>
 </div>
 
- <br>
-    
+  
 
 <!-- Button Up -->
 <a class="ir-arriba"  javascript:void(0) title="Volver arriba">
@@ -178,7 +187,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    <script src="pro-Congress-113-house.js"></script>
+
     <script src="./house.js"></script>
     
 </body>

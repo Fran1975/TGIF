@@ -1,3 +1,38 @@
+// AJAX
+
+let data;
+let url=""
+
+if (window.location.href.indexOf ("houseloyalty") > 0){ 
+  url = "https://api.propublica.org/congress/v1/113/house/members.json" 
+} else {  
+  url = "https://api.propublica.org/congress/v1/113/senate/members.json"
+}
+
+fetch (url, {
+  method:"GET",
+  headers: {
+    'X-API-key':'GLwqLRmwzLSou1ExQwR19nODpYtTxtHZI5pGaON6'
+  }
+  }).then (function (response){ 
+    if (response.ok) { 
+      return response.json();
+    }  
+   }) .then(function (json){     
+    data = json;    
+    console.log (data)
+    erase ()
+    loyaltyGlance ()
+    loyaltyPercentage ()
+
+     }) .catch(function (error) {     
+      console.log("Request failed: " + error.message);
+   });
+
+   function erase() {
+    document.getElementById("myP").style.visibility = "hidden";
+  }
+
 // Button Up
 
 $(document).ready(function(){ 
@@ -13,16 +48,17 @@ $(document).ready(function(){
   }    
 // Tabla 1 
 
+function loyaltyGlance () { 
     
-let sumRep=0
-let sumDem=0
-let sumInd=0
-let sumVoteR=0
-let sumVoteD=0
-let sumVoteI=0
+  let sumRep=0
+  let sumDem=0
+  let sumInd=0
+  let sumVoteR=0
+  let sumVoteD=0
+  let sumVoteI=0
 
 
-for (let i = 0;  i < data.results[0].members.length; i=i+1) 
+  for (let i = 0;  i < data.results[0].members.length; i=i+1) 
   { 
     let party = data.results[0].members[i].party
     let votes = data.results[0].members[i].votes_with_party_pct
@@ -42,43 +78,45 @@ for (let i = 0;  i < data.results[0].members.length; i=i+1)
         sumInd=sumInd+1
         sumVoteI=sumVoteI+votes
     }
+  }
 
-}
+  totsumVoteR= sumVoteR/sumRep
+  totsumVoteD= sumVoteD/sumDem
+  totsumVoteI= sumVoteI/sumInd
+  totalSum=sumDem+sumRep
+  totsumVote=(totsumVoteR+totsumVoteD+totsumVoteI)/3
+  totsumVote2=(totsumVoteR+totsumVoteD)/2
 
-totsumVoteR= sumVoteR/sumRep
-totsumVoteD= sumVoteD/sumDem
-totsumVoteI= sumVoteI/sumInd
-totalSum=sumDem+sumRep
-totsumVote=(totsumVoteR+totsumVoteD+totsumVoteI)/3
-totsumVote2=(totsumVoteR+totsumVoteD)/2
-
-document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"Democrats"+"</td><td>"
+  document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"Democrats"+"</td><td>"
     +sumDem+"</td><td>"+totsumVoteD.toFixed(2)+"</td></tr>"; 
-document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"Republicans"+"</td><td>"
+  document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"Republicans"+"</td><td>"
     +sumRep+"</td><td>"+totsumVoteR.toFixed(2)+"</td></tr>"; 
 
 
-if (sumInd <=1){ 
-document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"TOTAL"+"</td><td>"+totalSum+"</td><td>"+totsumVote2.toFixed(2)+"</td></tr>";
- } else {
+  if (sumInd <=1){ 
+  document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"TOTAL"+"</td><td>"+totalSum+"</td><td>"+totsumVote2.toFixed(2)+"</td></tr>";
+ }   else {
     document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"Independents"+"</td><td>"
     +sumInd+"</td><td>"+totsumVoteI.toFixed(2)+"</td></tr>"; 
     document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"TOTAL"+"</td><td>"+totalSum+"</td><td>"+totsumVote.toFixed(2)+"</td></tr>";
  }
+}
 
 // Tablas 2 y 3 
 
-let votesPartyPct = data.results[0].members
+function loyaltyPercentage () { 
 
-longitud = votesPartyPct.length
+  let votesPartyPct = data.results[0].members
 
-percentage = (longitud *10)/100
+  longitud = votesPartyPct.length
+
+  percentage = (longitud *10)/100
 
 
 
-votesPartyPct.sort (function (a,b){return (a.votes_with_party_pct - b.votes_with_party_pct)})
+  votesPartyPct.sort (function (a,b){return (a.votes_with_party_pct - b.votes_with_party_pct)})
 
-for(let i = 0; i < percentage; i++){
+  for(let i = 0; i < percentage; i++){
 
     let firstName = data.results[0].members[i].first_name
     let lastName = data.results[0].members[i].last_name
@@ -88,11 +126,11 @@ for(let i = 0; i < percentage; i++){
     
     document.getElementById("Tableloyaltytop").innerHTML+= "<tr><td>"+lastName+","+firstName+"</td><td>"
     +numberPartyVote.toFixed(0)+"</td><td>"+VotesParty+"</td></tr>"; 
-}
+  }
 
-votesPartyPct.sort (function (a,b){return (b.votes_with_party_pct - a.votes_with_party_pct)})
+  votesPartyPct.sort (function (a,b){return (b.votes_with_party_pct - a.votes_with_party_pct)})
 
-for(let i = 0; i < percentage; i++){
+  for(let i = 0; i < percentage; i++){
 
     let firstName = data.results[0].members[i].first_name
     let lastName = data.results[0].members[i].last_name
@@ -102,8 +140,8 @@ for(let i = 0; i < percentage; i++){
 
     document.getElementById("Tableloyaltybottom").innerHTML+= "<tr><td>"+lastName+","+firstName+"</td><td>"
     +numberPartyVote.toFixed(0)+"</td><td>"+VotesParty+"</td></tr>"; 
+  }
 }
-
  
  
  

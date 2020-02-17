@@ -1,3 +1,39 @@
+// AJAX
+
+let data;
+let url =" "
+
+if (window.location.href.indexOf ("houseattendance") > 0) { 
+  url = "https://api.propublica.org/congress/v1/113/house/members.json"
+ } else {   
+  url = "https://api.propublica.org/congress/v1/113/senate/members.json"
+}
+
+fetch (url, {
+  method:"GET",
+  headers: {
+    'X-API-key':'GLwqLRmwzLSou1ExQwR19nODpYtTxtHZI5pGaON6'
+  }
+  }).then (function (response){ 
+    if (response.ok) { 
+      return response.json();
+    }  
+   }) .then(function (json){     
+    data = json;    
+    console.log (data)
+    erase ()
+    attendanceGlance ()
+    attendancePercentage ()
+
+     }) .catch(function (error) {     
+      console.log("Request failed: " + error.message);
+   });
+
+   function erase() {
+    document.getElementById("myP").style.visibility = "hidden";
+  }
+
+
 // Button Up
 
 $(document).ready(function(){ 
@@ -14,7 +50,7 @@ $(document).ready(function(){
 
 // Tabla 1 
 
-    
+function attendanceGlance () { 
 let sumRep=0
 let sumDem=0
 let sumInd=0
@@ -66,10 +102,11 @@ document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"TOTAL"+"</td>
     +sumInd+"</td><td>"+totsumVoteI.toFixed(2)+"</td></tr>"; 
     document.getElementById("statisticsTable").innerHTML+= "<tr><td>"+"TOTAL"+"</td><td>"+totalSum+"</td><td>"+totsumVote.toFixed(2)+"</td></tr>";
  }
-
+}
 
 // Tabla 2 y 3 
 
+function attendancePercentage () { 
 
 let missedVotepct = data.results[0].members
 
@@ -103,6 +140,7 @@ for(let i = 0; i < percentage; i++){
 
     document.getElementById("Tablebottom").innerHTML+= "<tr><td>"+lastName+","+firstName+"</td><td>"
     +missedVote+"</td><td>"+missedVoteP+"</td></tr>"; 
+}
 }
 
  
