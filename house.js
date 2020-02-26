@@ -50,6 +50,7 @@ function tablePrincipal(array) {
       document.getElementById("houseTable").innerHTML += "<tr><td>" + urlname2 + "</td><td>" +
         party + "</td><td>" + state + "</td><td>" + votes + "%" + "</td></tr>";
     }
+  
   }
 }
 
@@ -115,8 +116,7 @@ function clickParty() {
     }
   }
   tablePrincipal(partys)
-
-
+   
   if (listaState == "ALL") {
     tablePrincipal(partys)
   } else {
@@ -130,6 +130,8 @@ function clickParty() {
     tablePrincipal(partyState)
   }
 }
+
+
 
 // Take data from JSON
 //Codigo a Ejecutar al Cargar la Pagina
